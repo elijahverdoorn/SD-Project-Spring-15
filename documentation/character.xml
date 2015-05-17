@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE spec SYSTEM "http://www.cs.stolaf.edu/lib/SpecML/SpecML.dtd">
+<?xml-stylesheet
+   href="http://www.cs.stolaf.edu/lib/SpecML/SpecMLToHTML.xsl"
+   type="text/xsl"?>
+
+<spec>
+<title>The Character Class Specifications</title>
+<header>This class is used for creating a character, which is put on the game map and can interact with objects and tiles.</header>
+<credits>Elijah Verdoorn; XML created by Elijah Verdoorn on May 15, 2015</credits>
+
+<class name="Tile">
+
+<nosuperclass/>
+
+<variables>
+<var name="sprite" type="Sprite*" visibility="private">This is used to get the sprite used for the tile.</var>
+<var name="texture" type="Texture" visibility="private">This is used to set the texture used for the sprite of the tile.</var>
+<var name="posX" type="int" visibility="private">We use this to get what X position on the grid the character is at.</var>
+<var name="posY" type="int" visibility="private">We use this to get what Y position on the grid the character is at.</var>
+<var name="gridLocation" type="int" visibility="private">This will be used for calculating the array position of the character</var>
+<var name="selected" type="bool" visibility="private">This is used for knowing if the specific character is selected by the user.</var>
+<var name="name" type="std::string" visibility="private">We use this for giving the character a distinct name.</var>
+<var name="maxSpeed" type="int" visibility="private">Tracks the characters maximum speed.</var>
+<var name="currentSpeed" type="int" visibility="private">Holds the characters remaining speed as they move.</var>
+<var name="teamID" type="int" visibility="private">Holds the character's team number.</var>
+<var name="maxHitPoints" type="int" visibility="private">Holds the characters maximum hit points.</var>
+<var name="maxAtkPower" type="int" visibility="private">Holds the characters maximum attack power.</var>
+<var name="maxDefPower" type="int" visibility="private">Holds the characters maximum defense power.</var>
+<var name="maxRange" type="int" visibility="private">Holds the characters's maximum attack range.</var>
+<var name="maxActions" type="int" visibility="private">Holds the characters maximum actions.</var>
+<var name="currentHitPoints" type="int" visibility="private">Holds the character's remaining hit points.</var>
+<var name="currentAtkPower" type="int" visibility="private">Holds the character's remaining attack power.</var>
+<var name="currentDefPower" type="int" visibility="private">Holds the character's remaining defense power.</var>
+<var name="currentRange" type="int" visibility="private">Holds the character's remaining range.</var>
+<var name="fileName" type="string" visibility="private">Holds a filename.</var>
+<var name="alive" type="bool" visibility="private">True when hit points are above 0.</var>
+</variables>
+
+<constructors-list>
+
+<constructor>
+<desc>Character</desc>
+<arguments>
+<arg name = "None"></arg>
+</arguments>
+<statechange>Used to create a default Character</statechange>
+</constructor>
+
+<constructor>
+<desc>Character</desc>
+<arguments>
+<arg name="texture" type="sf::Texture">Used to insert a texture into a Character</arg><arg name="namePar" type="std::string">Used to give the Character a distinct name</arg>
+</arguments>
+<statechange>Creates a character with a texture of sf::Texture and names it namePar.</statechange>
+</constructor>
+
+<constructor>
+<desc>Character</desc>
+<arguments>
+<arg name="fileName" type="std::string">Used to insert a texture into a Character from a file</arg><arg name="namePar" type="std::string">Used to give the Character a distinct name</arg>
+</arguments>
+<statechange>Creates a character with a texture from a file and names it namePar.</statechange>
+</constructor>
+
+</constructors-list>
+
+<destructor>
+<desc>Character</desc>
+<statechange>Deletes a Character</statechange>
+</destructor>
+
+<methods-list>
+
+<method name="move" returntype="void">
+<desc>Moves a character</desc>
+<arguments>
+<arg name="par" type="int">How much a character moves</arg>
+<arg name="dir" type="int">Which way a character moves; Up = 1, Right = 2, Left = 3, Down = 4</arg>
+</arguments>
+<statechange>Moves a character par tiles in dir direction</statechange>
+<noreturn />
+</method>
+
+<method name="setGridPosition" returntype="void">
+<desc>Sets the position of a character</desc>
+<arguments>
+<arg name="x" type="int">X array position</arg>
+<arg name="y" type="int">Y array position</arg>
+</arguments>
+<statechange>Puts a character on the x and y values of the grid array (ie. on [4][15])</statechange>
+<return></return>
+</method>
+
+<method name="setEditorPosition" returntype="void">
+<desc>Sets the position of a character</desc>
+<arguments>
+<arg name="x" type="int">X array position</arg>
+<arg name="y" type="int">Y array position</arg>
+</arguments>
+<statechange>Puts a character on the x and y values of the grid in the editor's array (ie. on [4][15])</statechange>
+<return></return>
+</method>
+
+<method name="setPixelPosition" returntype="void">
+<desc>Sets the position of a character</desc>
+<arguments>
+<arg name="x" type="int">X position in pixels</arg>
+<arg name="y" type="int">Y position in pixels</arg>
+</arguments>
+<statechange>Puts a character on the x and y position of the window (ie. on 400,600)</statechange>
+<return></return>
+</method>
+
+<method name="draw" returntype="void">
+<desc>Draws the character</desc>
+<arguments>
+<arg name="window" type="sf::RenderWindow*">Draws the character on the window</arg>
+</arguments>
+<statechange>Uses the SFML RenderWindow function to draw the character.</statechange>
+<return></return>
+</method>
+
+<method name="isSelected" returntype="bool">
+<desc>Checks if the character is selected</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>true or false</return>
+</method>
+
+<method name="setSelected" returntype="void">
+<desc>Used to set the character's selection</desc>
+<arguments>
+<arg name="par" type="bool">Whether or not the character should be selected</arg>
+</arguments>
+<statechange>Change if the character is selected or not</statechange>
+<return></return>
+</method>
+
+<method name="getName" returntype="string">
+<desc>Access the name variable</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>The value of name.</return>
+</method>
+
+<method name="getTexture" returntype="Texture">
+<desc>Access the texture variable</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>The value of texture.</return>
+</method>
+
+<method name="getTexturePtr" returntype="Texture*">
+<desc>Access the address of the texture variable</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>The address of texture.</return>
+</method>
+
+<method name="setTexture" returntype="void">
+<desc>Sets the texture of a character</desc>
+<arguments>
+<arg name="par" type="Texture">A texture object.</arg>
+</arguments>
+<statechange>Changes the texture associated with this character.</statechange>
+<return></return>
+</method>
+
+<method name="movePixelPosition" returntype="void">
+<desc>Sets the position of a character</desc>
+<arguments>
+<arg name="x" type="int">An X position, in pixels.</arg>
+<arg name="y" type="int">A Y position, in pixels.</arg>
+</arguments>
+<statechange>Changes the location of this character, costing a move.</statechange>
+<return></return>
+</method>
+
+<method name="moveGridPosition" returntype="void">
+<desc>Sets the position of a character</desc>
+<arguments>
+<arg name="x" type="int">An X position, in grid units.</arg>
+<arg name="y" type="int">A Y position, in grid units.</arg>
+</arguments>
+<statechange>Changes the location of this character, costing a move.</statechange>
+<return></return>
+</method>
+
+<method name="getPositionX" returntype="int">
+<desc>Gets the Character's X array position</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>The X position on the map array</return>
+</method>
+
+<method name="getPositionY" returntype="int">
+<desc>Gets the Character's Y array position</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>The Y position on the map array</return>
+</method>
+
+<method name="getTeamID" returntype="int">
+<desc>Gets the Character's team ID</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>The value of teamID</return>
+</method>
+
+<method name="setTeamID" returntype="void">
+<desc>Sets the teamID of a character</desc>
+<arguments>
+<arg name="par" type="int">An integer.</arg>
+</arguments>
+<statechange>Changes the teamID associated with this character.</statechange>
+<return></return>
+</method>
+
+<method name="getCurrentSpeed" returntype="int">
+<desc>Gets the Character's remaining moves.</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>The value of currentSpeed</return>
+</method>
+
+<method name="setCurrentSpeed" returntype="void">
+<desc>Sets the current speed of a character</desc>
+<arguments>
+<arg name="par" type="int">An integer.</arg>
+</arguments>
+<statechange>Changes the currentSpeed associated with this character.</statechange>
+<return></return>
+</method>
+
+<method name="setName" returntype="void">
+<desc>Sets the name of a character</desc>
+<arguments>
+<arg name="par" type="string">A string.</arg>
+</arguments>
+<statechange>Changes the name associated with this character.</statechange>
+<return></return>
+</method>
+
+<method name="getCurrentHitPoints" returntype="int">
+<desc>Gets the Character's remaining hit points.</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>The value of currentHitPoints</return>
+</method>
+
+<method name="getCurrentAtk" returntype="int">
+<desc>Gets the Character's remaining attack power.</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>The value of currentAtkPower</return>
+</method>
+
+<method name="getCurrentDef" returntype="int">
+<desc>Gets the Character's remaining defense power.</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>The value of currentDefPower</return>
+</method>
+
+<method name="takeDamage" returntype="void">
+<desc>Reduces the character's hit points</desc>
+<arguments>
+<arg name="par" type="int">An integer.</arg>
+</arguments>
+<statechange>Changes the currentHitPoints associated with this character to be currentHitPoints - par.</statechange>
+<return></return>
+</method>
+
+<method name="getCurrentRange" returntype="int">
+<desc>Gets the Character's current range.</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>The value of currentRange</return>
+</method>
+
+<method name="setCurrentHitPoints" returntype="void">
+<desc>Changes the character's hit points</desc>
+<arguments>
+<arg name="par" type="int">An integer.</arg>
+</arguments>
+<statechange>Changes the currentHitPoints associated with this character.</statechange>
+<return></return>
+</method>
+
+<method name="setMaxSpeed" returntype="void">
+<desc>Changes the Character's max speed</desc>
+<arguments>
+<arg name="par" type="int">An integer.</arg>
+</arguments>
+<statechange>Changes the maximumSpeed associated with this character.</statechange>
+<return></return>
+</method>
+
+<method name="getMaxSpeed" returntype="int">
+<desc>Gets the Character's maximum speed.</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>The value of maximumSpeed</return>
+</method>
+
+<method name="die" returntype="void">
+<desc>Called when this character's HP reaches 0.</desc>
+<noarguments />
+<statechange>The character is moved off the visible grid, and the value of alive is changed to be false.</statechange>
+<return></return>
+</method>
+
+<method name="setMaxHitPoints" returntype="void">
+<desc>Changes the Character's max HP</desc>
+<arguments>
+<arg name="par" type="int">An integer.</arg>
+</arguments>
+<statechange>Changes the maximumHitPoints associated with this character.</statechange>
+<return></return>
+</method>
+
+<method name="getMaxHitPoints" returntype="int">
+<desc>Gets the Character's maximum HP.</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>The value of maximumHitPoints</return>
+</method>
+
+<method name="setMaxAtk" returntype="void">
+<desc>Changes the Character's max attack Power</desc>
+<arguments>
+<arg name="par" type="int">An integer.</arg>
+</arguments>
+<statechange>Changes the maximumAtkPower associated with this character.</statechange>
+<return></return>
+</method>
+
+<method name="getMaxAtk" returntype="int">
+<desc>Gets the Character's maximum attack power.</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>The value of maximumAtkPower.</return>
+</method>
+
+<method name="setMaxDef" returntype="void">
+<desc>Changes the Character's max defense power</desc>
+<arguments>
+<arg name="par" type="int">An integer.</arg>
+</arguments>
+<statechange>Changes the maximumDefPower associated with this character.</statechange>
+<return></return>
+</method>
+
+<method name="getMaxDef" returntype="int">
+<desc>Gets the Character's maximum defense power.</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>The value of maximumDefPower.</return>
+</method>
+
+<method name="setMaxRange" returntype="void">
+<desc>Changes the Character's max range</desc>
+<arguments>
+<arg name="par" type="int">An integer.</arg>
+</arguments>
+<statechange>Changes the maximumRange associated with this character.</statechange>
+<return></return>
+</method>
+
+<method name="getMaxRange" returntype="int">
+<desc>Gets the Character's maximum range.</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>The value of maximumRange.</return>
+</method>
+
+<method name="setFileName" returntype="void">
+<desc>Changes the Character's file name</desc>
+<arguments>
+<arg name="file" type="string">A string.</arg>
+</arguments>
+<statechange>Changes the file name associated with this character.</statechange>
+<return></return>
+</method>
+
+<method name="getFileName" returntype="string">
+<desc>Gets the Character's file name.</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>The value of fileName.</return>
+</method>
+
+<method name="isAlive" returntype="bool">
+<desc>Called to check if this character is alive.</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>The value of alive</return>
+</method>
+
+</methods-list>
+
+</class>
+
+</spec>

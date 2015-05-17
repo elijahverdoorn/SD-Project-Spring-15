@@ -1,0 +1,150 @@
+15
+15
+44
+10
+10
+25
+6
+tileSprites/texture7.png
+tileSprites/texture2.png
+tileSprites/texture4.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture1.png
+tileSprites/texture3.png
+tileSprites/texture1.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture1.png
+tileSprites/texture3.png
+tileSprites/texture1.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture1.png
+tileSprites/texture3.png
+tileSprites/texture1.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture1.png
+tileSprites/texture3.png
+tileSprites/texture6.png
+tileSprites/texture2.png
+tileSprites/texture2.png
+tileSprites/texture4.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture1.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture1.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture1.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture1.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture1.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture1.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture1.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture1.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture6.png
+tileSprites/texture2.png
+tileSprites/texture2.png
+tileSprites/texture2.png
+tileSprites/texture2.png
+tileSprites/texture5.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+tileSprites/texture3.png
+objectSprites/texture1.png 3 0 1 2
+objectSprites/texture2.png 9 0 1 5
+objectSprites/texture3.png 4 1 0 0
+objectSprites/texture3.png 5 1 0 0
+objectSprites/texture1.png 1 2 1 2
+objectSprites/texture3.png 4 2 0 0
+objectSprites/texture3.png 5 2 0 0
+objectSprites/texture1.png 7 2 1 2
+objectSprites/texture1.png 1 3 1 2
+objectSprites/texture2.png 4 3 1 5
+objectSprites/texture1.png 7 3 1 2
+objectSprites/texture3.png 7 5 0 0
+objectSprites/texture3.png 8 5 0 0
+objectSprites/texture1.png 9 5 1 2
+objectSprites/texture3.png 2 6 0 0
+objectSprites/texture3.png 3 6 0 0
+objectSprites/texture3.png 7 6 0 0
+objectSprites/texture3.png 8 6 0 0
+objectSprites/texture3.png 2 7 0 0
+objectSprites/texture3.png 3 7 0 0
+objectSprites/texture1.png 4 7 1 2
+objectSprites/texture1.png 9 7 1 2
+objectSprites/texture2.png 1 8 1 5
+objectSprites/texture1.png 6 9 1 2
+objectSprites/texture1.png 7 9 1 2
+1 characterSprites/texture1.png CharID#101 1 1 1 10 5 5 1
+2 characterSprites/texture2.png CharID#901 9 1 1 10 5 5 1
+1 characterSprites/texture1.png CharID#104 1 4 1 10 5 5 1
+2 characterSprites/texture2.png CharID#904 9 4 1 10 5 5 1
+2 characterSprites/texture2.png CharID#906 9 6 1 10 5 5 1
+1 characterSprites/texture1.png CharID#107 1 7 1 10 5 5 1
+3
+7
+4 4 1 0
+4 5 1 0
+10 5 1 0
+1 CharID#1605 800 250 1 10 5 5 1
+1 CharID#908 450 400 1 10 5 5 1
+1 CharID#1308 650 400 1 10 5 5 1
+1 CharID#1509 750 450 1 10 5 5 1
+1 CharID#1211 600 550 1 10 5 5 1
+1 CharID#812 400 600 1 10 5 5 1
+1 CharID#1017 500 850 1 10 5 5 1

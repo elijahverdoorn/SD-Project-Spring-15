@@ -1,0 +1,1489 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+   This document was automatically created using an XSLT stylesheet by Aubrey Barnard.
+   See www.stolaf.edu/people/barnard/xml/xml.html for additional information.
+   -->
+<html xmlns="http://www.w3.org/TR/xhtml1/strict">
+<head>
+<title>The Character Class Specifications</title>
+</head>
+<body bgcolor="white">
+<div class="specification">
+<center>
+<p>
+<big>
+<big>
+<big>
+<big>The Character Class Specifications</big>
+</big>
+</big>
+</big>
+</p>
+</center>
+<center>
+<p>
+<big>
+<big>
+<big>This class is used for creating a character, which is put on the game map and can interact with objects and tiles.</big>
+</big>
+</big>
+</p>
+</center>
+<center>
+<p>Elijah Verdoorn; XML created by Elijah Verdoorn on May 15, 2015</p>
+</center>
+<br/>
+<hr/>
+<br/>
+<br/>
+
+<dl class="class-spec">
+<p>
+<dt>
+<big>
+<strong>CLASS <code> Tile</code>
+</strong>
+</big>
+</dt>
+<dd>
+
+<dl class="inheritance">
+<p>
+<dt>
+<strong>No superclass.</strong>
+</dt>
+<dd/>
+</p>
+</dl>
+
+<dl class="variables">
+<p>
+<dt>
+<strong>State variables:</strong>
+</dt>
+<dd>
+<dl>
+<p>
+<dt class="var">
+<code>private  Sprite* sprite</code>
+</dt>
+<dd>This is used to get the sprite used for the tile.</dd>
+</p>
+<p>
+<dt class="var">
+<code>private  Texture texture</code>
+</dt>
+<dd>This is used to set the texture used for the sprite of the tile.</dd>
+</p>
+<p>
+<dt class="var">
+<code>private  int posX</code>
+</dt>
+<dd>We use this to get what X position on the grid the character is at.</dd>
+</p>
+<p>
+<dt class="var">
+<code>private  int posY</code>
+</dt>
+<dd>We use this to get what Y position on the grid the character is at.</dd>
+</p>
+<p>
+<dt class="var">
+<code>private  int gridLocation</code>
+</dt>
+<dd>This will be used for calculating the array position of the character</dd>
+</p>
+<p>
+<dt class="var">
+<code>private  bool selected</code>
+</dt>
+<dd>This is used for knowing if the specific character is selected by the user.</dd>
+</p>
+<p>
+<dt class="var">
+<code>private  std::string name</code>
+</dt>
+<dd>We use this for giving the character a distinct name.</dd>
+</p>
+<p>
+<dt class="var">
+<code>private  int maxSpeed</code>
+</dt>
+<dd>Tracks the characters maximum speed.</dd>
+</p>
+<p>
+<dt class="var">
+<code>private  int currentSpeed</code>
+</dt>
+<dd>Holds the characters remaining speed as they move.</dd>
+</p>
+<p>
+<dt class="var">
+<code>private  int teamID</code>
+</dt>
+<dd>Holds the character's team number.</dd>
+</p>
+<p>
+<dt class="var">
+<code>private  int maxHitPoints</code>
+</dt>
+<dd>Holds the characters maximum hit points.</dd>
+</p>
+<p>
+<dt class="var">
+<code>private  int maxAtkPower</code>
+</dt>
+<dd>Holds the characters maximum attack power.</dd>
+</p>
+<p>
+<dt class="var">
+<code>private  int maxDefPower</code>
+</dt>
+<dd>Holds the characters maximum defense power.</dd>
+</p>
+<p>
+<dt class="var">
+<code>private  int maxRange</code>
+</dt>
+<dd>Holds the characters's maximum attack range.</dd>
+</p>
+<p>
+<dt class="var">
+<code>private  int maxActions</code>
+</dt>
+<dd>Holds the characters maximum actions.</dd>
+</p>
+<p>
+<dt class="var">
+<code>private  int currentHitPoints</code>
+</dt>
+<dd>Holds the character's remaining hit points.</dd>
+</p>
+<p>
+<dt class="var">
+<code>private  int currentAtkPower</code>
+</dt>
+<dd>Holds the character's remaining attack power.</dd>
+</p>
+<p>
+<dt class="var">
+<code>private  int currentDefPower</code>
+</dt>
+<dd>Holds the character's remaining defense power.</dd>
+</p>
+<p>
+<dt class="var">
+<code>private  int currentRange</code>
+</dt>
+<dd>Holds the character's remaining range.</dd>
+</p>
+<p>
+<dt class="var">
+<code>private  string fileName</code>
+</dt>
+<dd>Holds a filename.</dd>
+</p>
+<p>
+<dt class="var">
+<code>private  bool alive</code>
+</dt>
+<dd>True when hit points are above 0.</dd>
+</p>
+</dl>
+</dd>
+</p>
+</dl>
+
+<dl class="constructors-list">
+<p>
+<dt>
+<strong>Constructors:</strong>
+</dt>
+<dd>
+<dl>
+
+<p>
+<dt class="constructor">
+<code> Tile</code>
+</dt>
+<dd>
+<dl>
+Character
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code> None</code>
+</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Used to create a default Character</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="constructor">
+<code> Tile</code>
+</dt>
+<dd>
+<dl>
+Character
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>sf::Texture texture</code>
+</dt>
+<dd>Used to insert a texture into a Character</dd>
+</p>
+<p>
+<dt class="arg">
+<code>std::string namePar</code>
+</dt>
+<dd>Used to give the Character a distinct name</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Creates a character with a texture of sf::Texture and names it namePar.</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="constructor">
+<code> Tile</code>
+</dt>
+<dd>
+<dl>
+Character
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>std::string fileName</code>
+</dt>
+<dd>Used to insert a texture into a Character from a file</dd>
+</p>
+<p>
+<dt class="arg">
+<code>std::string namePar</code>
+</dt>
+<dd>Used to give the Character a distinct name</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Creates a character with a texture from a file and names it namePar.</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+</dl>
+</dd>
+</p>
+</dl>
+
+<dl class="destructor">
+<p>
+<dt>
+<strong>Destructor:</strong>
+</dt>
+<dd>
+<dl>
+<dt class="destructor">
+<code> 
+      ~Tile</code>
+</dt>
+<dd>
+<dl>
+Character
+<p>
+<dt>State change:</dt>
+<dd>Deletes a Character</dd>
+</p>
+</dl>
+</dd>
+</dl>
+</dd>
+</p>
+</dl>
+
+<dl class="methods-list">
+<p>
+<dt>
+<strong>Methods:</strong>
+</dt>
+<dd>
+<dl>
+
+<p>
+<dt class="method">
+<code> void move</code>
+</dt>
+<dd>
+<dl>
+Moves a character
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>int par</code>
+</dt>
+<dd>How much a character moves</dd>
+</p>
+<p>
+<dt class="arg">
+<code>int dir</code>
+</dt>
+<dd>Which way a character moves; Up = 1, Right = 2, Left = 3, Down = 4</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Moves a character par tiles in dir direction</dd>
+</p>
+<p>
+<dt>No return value.</dt>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void setGridPosition</code>
+</dt>
+<dd>
+<dl>
+Sets the position of a character
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>int x</code>
+</dt>
+<dd>X array position</dd>
+</p>
+<p>
+<dt class="arg">
+<code>int y</code>
+</dt>
+<dd>Y array position</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Puts a character on the x and y values of the grid array (ie. on [4][15])</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void setEditorPosition</code>
+</dt>
+<dd>
+<dl>
+Sets the position of a character
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>int x</code>
+</dt>
+<dd>X array position</dd>
+</p>
+<p>
+<dt class="arg">
+<code>int y</code>
+</dt>
+<dd>Y array position</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Puts a character on the x and y values of the grid in the editor's array (ie. on [4][15])</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void setPixelPosition</code>
+</dt>
+<dd>
+<dl>
+Sets the position of a character
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>int x</code>
+</dt>
+<dd>X position in pixels</dd>
+</p>
+<p>
+<dt class="arg">
+<code>int y</code>
+</dt>
+<dd>Y position in pixels</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Puts a character on the x and y position of the window (ie. on 400,600)</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void draw</code>
+</dt>
+<dd>
+<dl>
+Draws the character
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>sf::RenderWindow* window</code>
+</dt>
+<dd>Draws the character on the window</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Uses the SFML RenderWindow function to draw the character.</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> bool isSelected</code>
+</dt>
+<dd>
+<dl>
+Checks if the character is selected
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>true or false</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void setSelected</code>
+</dt>
+<dd>
+<dl>
+Used to set the character's selection
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>bool par</code>
+</dt>
+<dd>Whether or not the character should be selected</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Change if the character is selected or not</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> string getName</code>
+</dt>
+<dd>
+<dl>
+Access the name variable
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>The value of name.</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> Texture getTexture</code>
+</dt>
+<dd>
+<dl>
+Access the texture variable
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>The value of texture.</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> Texture* getTexturePtr</code>
+</dt>
+<dd>
+<dl>
+Access the address of the texture variable
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>The address of texture.</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void setTexture</code>
+</dt>
+<dd>
+<dl>
+Sets the texture of a character
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>Texture par</code>
+</dt>
+<dd>A texture object.</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Changes the texture associated with this character.</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void movePixelPosition</code>
+</dt>
+<dd>
+<dl>
+Sets the position of a character
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>int x</code>
+</dt>
+<dd>An X position, in pixels.</dd>
+</p>
+<p>
+<dt class="arg">
+<code>int y</code>
+</dt>
+<dd>A Y position, in pixels.</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Changes the location of this character, costing a move.</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void moveGridPosition</code>
+</dt>
+<dd>
+<dl>
+Sets the position of a character
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>int x</code>
+</dt>
+<dd>An X position, in grid units.</dd>
+</p>
+<p>
+<dt class="arg">
+<code>int y</code>
+</dt>
+<dd>A Y position, in grid units.</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Changes the location of this character, costing a move.</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> int getPositionX</code>
+</dt>
+<dd>
+<dl>
+Gets the Character's X array position
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>The X position on the map array</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> int getPositionY</code>
+</dt>
+<dd>
+<dl>
+Gets the Character's Y array position
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>The Y position on the map array</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> int getTeamID</code>
+</dt>
+<dd>
+<dl>
+Gets the Character's team ID
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>The value of teamID</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void setTeamID</code>
+</dt>
+<dd>
+<dl>
+Sets the teamID of a character
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>int par</code>
+</dt>
+<dd>An integer.</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Changes the teamID associated with this character.</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> int getCurrentSpeed</code>
+</dt>
+<dd>
+<dl>
+Gets the Character's remaining moves.
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>The value of currentSpeed</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void setCurrentSpeed</code>
+</dt>
+<dd>
+<dl>
+Sets the current speed of a character
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>int par</code>
+</dt>
+<dd>An integer.</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Changes the currentSpeed associated with this character.</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void setName</code>
+</dt>
+<dd>
+<dl>
+Sets the name of a character
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>string par</code>
+</dt>
+<dd>A string.</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Changes the name associated with this character.</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> int getCurrentHitPoints</code>
+</dt>
+<dd>
+<dl>
+Gets the Character's remaining hit points.
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>The value of currentHitPoints</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> int getCurrentAtk</code>
+</dt>
+<dd>
+<dl>
+Gets the Character's remaining attack power.
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>The value of currentAtkPower</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> int getCurrentDef</code>
+</dt>
+<dd>
+<dl>
+Gets the Character's remaining defense power.
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>The value of currentDefPower</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void takeDamage</code>
+</dt>
+<dd>
+<dl>
+Reduces the character's hit points
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>int par</code>
+</dt>
+<dd>An integer.</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Changes the currentHitPoints associated with this character to be currentHitPoints - par.</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> int getCurrentRange</code>
+</dt>
+<dd>
+<dl>
+Gets the Character's current range.
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>The value of currentRange</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void setCurrentHitPoints</code>
+</dt>
+<dd>
+<dl>
+Changes the character's hit points
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>int par</code>
+</dt>
+<dd>An integer.</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Changes the currentHitPoints associated with this character.</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void setMaxSpeed</code>
+</dt>
+<dd>
+<dl>
+Changes the Character's max speed
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>int par</code>
+</dt>
+<dd>An integer.</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Changes the maximumSpeed associated with this character.</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> int getMaxSpeed</code>
+</dt>
+<dd>
+<dl>
+Gets the Character's maximum speed.
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>The value of maximumSpeed</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void die</code>
+</dt>
+<dd>
+<dl>
+Called when this character's HP reaches 0.
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>The character is moved off the visible grid, and the value of alive is changed to be false.</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void setMaxHitPoints</code>
+</dt>
+<dd>
+<dl>
+Changes the Character's max HP
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>int par</code>
+</dt>
+<dd>An integer.</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Changes the maximumHitPoints associated with this character.</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> int getMaxHitPoints</code>
+</dt>
+<dd>
+<dl>
+Gets the Character's maximum HP.
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>The value of maximumHitPoints</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void setMaxAtk</code>
+</dt>
+<dd>
+<dl>
+Changes the Character's max attack Power
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>int par</code>
+</dt>
+<dd>An integer.</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Changes the maximumAtkPower associated with this character.</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> int getMaxAtk</code>
+</dt>
+<dd>
+<dl>
+Gets the Character's maximum attack power.
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>The value of maximumAtkPower.</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void setMaxDef</code>
+</dt>
+<dd>
+<dl>
+Changes the Character's max defense power
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>int par</code>
+</dt>
+<dd>An integer.</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Changes the maximumDefPower associated with this character.</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> int getMaxDef</code>
+</dt>
+<dd>
+<dl>
+Gets the Character's maximum defense power.
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>The value of maximumDefPower.</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void setMaxRange</code>
+</dt>
+<dd>
+<dl>
+Changes the Character's max range
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>int par</code>
+</dt>
+<dd>An integer.</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Changes the maximumRange associated with this character.</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> int getMaxRange</code>
+</dt>
+<dd>
+<dl>
+Gets the Character's maximum range.
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>The value of maximumRange.</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void setFileName</code>
+</dt>
+<dd>
+<dl>
+Changes the Character's file name
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>string file</code>
+</dt>
+<dd>A string.</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Changes the file name associated with this character.</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> string getFileName</code>
+</dt>
+<dd>
+<dl>
+Gets the Character's file name.
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>The value of fileName.</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> bool isAlive</code>
+</dt>
+<dd>
+<dl>
+Called to check if this character is alive.
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>The value of alive</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+</dl>
+</dd>
+</p>
+</dl>
+
+</dd>
+<dt>
+<hr/>
+</dt>
+<dd/>
+</p>
+</dl>
+
+</div>
+</body>
+</html>

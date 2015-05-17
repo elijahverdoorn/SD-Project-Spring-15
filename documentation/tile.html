@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+   This document was automatically created using an XSLT stylesheet by Aubrey Barnard.
+   See www.stolaf.edu/people/barnard/xml/xml.html for additional information.
+   -->
+<html xmlns="http://www.w3.org/TR/xhtml1/strict">
+<head>
+<title>Tile Class Spec</title>
+</head>
+<body bgcolor="white">
+<div class="specification">
+<center>
+<p>
+<big>
+<big>
+<big>
+<big>Tile Class Spec</big>
+</big>
+</big>
+</big>
+</p>
+</center>
+<center>
+<p>
+<big>
+<big>
+<big>Modeling the Tile class</big>
+</big>
+</big>
+</p>
+</center>
+<center>
+<p>Elijah Verdoorn. 5/15/15 CS251 @ St. Olaf College</p>
+</center>
+<br/>
+<hr/>
+<br/>
+<br/>
+
+<dl class="class-spec">
+<p>
+<dt>
+<big>
+<strong>CLASS <code> Tile</code>
+</strong>
+</big>
+</dt>
+<dd>
+
+<dl class="inheritance">
+<p>
+<dt>
+<strong>No superclass.</strong>
+</dt>
+<dd/>
+</p>
+</dl>
+
+<dl class="variables">
+<p>
+<dt>
+<strong>State variables:</strong>
+</dt>
+<dd>
+<dl>
+<p>
+<dt class="var">
+<code>  *sprite sprite</code>
+</dt>
+<dd>A sprite object</dd>
+</p>
+<p>
+<dt class="var">
+<code>  Texture texture</code>
+</dt>
+<dd>The associated Texture Object</dd>
+</p>
+<p>
+<dt class="var">
+<code>  int posX</code>
+</dt>
+<dd>The X position of this tile</dd>
+</p>
+<p>
+<dt class="var">
+<code>  int posY</code>
+</dt>
+<dd>The Y position of this tile</dd>
+</p>
+<p>
+<dt class="var">
+<code>  int width</code>
+</dt>
+<dd>The width of this tile, in pixels</dd>
+</p>
+<p>
+<dt class="var">
+<code>  int height</code>
+</dt>
+<dd>The height if this tile, in pixels</dd>
+</p>
+<p>
+<dt class="var">
+<code>  string fileName</code>
+</dt>
+<dd>The filename associated with this tile</dd>
+</p>
+</dl>
+</dd>
+</p>
+</dl>
+
+<dl class="constructors-list">
+<p>
+<dt>
+<strong>Constructors:</strong>
+</dt>
+<dd>
+<dl>
+
+<p>
+<dt class="constructor">
+<code>public Tile</code>
+</dt>
+<dd>
+<dl>
+The default constructor.
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>This instance of Tile is initialized with no texture, sprite or other values. </dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="constructor">
+<code>public Tile</code>
+</dt>
+<dd>
+<dl>
+Constructor from a Texture
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>Texture par</code>
+</dt>
+<dd>The texture to be used</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>The texture is assinged to Texture, and a sprite is created from the Texture.</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="constructor">
+<code>public Tile</code>
+</dt>
+<dd>
+<dl>
+Constructor from a filename
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>string fileName</code>
+</dt>
+<dd>The file to pull the texture from</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>The texture is created from the fileName, then the sprite created from the texture.</dd>
+</p>
+</dl>
+</dd>
+</p>
+</dl>
+</dd>
+</p>
+</dl>
+
+<dl class="destructor">
+<p>
+<dt>
+<strong>Destructor:</strong>
+</dt>
+<dd>
+<dl>
+<dt class="destructor">
+<code> 
+      ~Tile</code>
+</dt>
+<dd>
+<dl>
+No Destructor Required
+</dl>
+</dd>
+</dl>
+</dd>
+</p>
+</dl>
+
+<dl class="methods-list">
+<p>
+<dt>
+<strong>Methods:</strong>
+</dt>
+<dd>
+<dl>
+
+<p>
+<dt class="method">
+<code> void draw</code>
+</dt>
+<dd>
+<dl>
+Draw the sprit on the window
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>*RenderWindow window</code>
+</dt>
+<dd>The window for the sprite to be created on.</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>The sprite is displayed on the window.</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>void</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> Sprite getSprite</code>
+</dt>
+<dd>
+<dl>
+Get the sprite object
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>the sprite object is returned</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>sprite</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void setPosition</code>
+</dt>
+<dd>
+<dl>
+Sets the position of a tile
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>int x</code>
+</dt>
+<dd>X array position</dd>
+</p>
+<p>
+<dt class="arg">
+<code>int y</code>
+</dt>
+<dd>Y array position</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Puts a tile on the x and y values of the grid array</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void setEditorPosition</code>
+</dt>
+<dd>
+<dl>
+Sets the position of a tile
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>int x</code>
+</dt>
+<dd>X array position</dd>
+</p>
+<p>
+<dt class="arg">
+<code>int y</code>
+</dt>
+<dd>Y array position</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Puts a tile on the x and y values of the grid in the editor's array</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void setWidth</code>
+</dt>
+<dd>
+<dl>
+Changes the tile's width
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>int par</code>
+</dt>
+<dd>An integer.</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Changes the width associated with this tile.</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void setHeight</code>
+</dt>
+<dd>
+<dl>
+Changes the tile's Height
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>int par</code>
+</dt>
+<dd>An integer.</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Changes the Height associated with this tile.</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void setPositionX</code>
+</dt>
+<dd>
+<dl>
+Sets the X position of a tile
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>int apr</code>
+</dt>
+<dd>X grid position</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Puts a tile on the x position</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void setPositionY</code>
+</dt>
+<dd>
+<dl>
+Sets the Y position of a tile
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>int par</code>
+</dt>
+<dd>Y grid position</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Puts a tile on the y position</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> int getPositionX</code>
+</dt>
+<dd>
+<dl>
+Gets the tiles's X array position
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>The X position on the map array</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> int getPositionY</code>
+</dt>
+<dd>
+<dl>
+Gets the tile's Y array position
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>The Y position on the map array</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void setTexture</code>
+</dt>
+<dd>
+<dl>
+Sets the texture of a character
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>Texture par</code>
+</dt>
+<dd>A texture object.</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Changes the texture associated with this character.</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> Texture getTexture</code>
+</dt>
+<dd>
+<dl>
+Access the texture variable
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>The value of texture.</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> Texture* getTexturePtr</code>
+</dt>
+<dd>
+<dl>
+Access the address of the texture variable
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>The address of texture.</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> void setFileName</code>
+</dt>
+<dd>
+<dl>
+Changes the tile's file name
+<p>
+<dt class="arguments">Arguments:</dt>
+<dd>
+<dl>
+<p>
+<dt class="arg">
+<code>string file</code>
+</dt>
+<dd>A string.</dd>
+</p>
+</dl>
+</dd>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>Changes the file name associated with this tile.</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd/>
+</p>
+</dl>
+</dd>
+</p>
+
+<p>
+<dt class="method">
+<code> string getFileName</code>
+</dt>
+<dd>
+<dl>
+Gets the tile's file name.
+<p>
+<dt class="arguments">No arguments.</dt>
+<dd/>
+</p>
+<p>
+<dt>State change:</dt>
+<dd>None</dd>
+</p>
+<p>
+<dt>Return value:</dt>
+<dd>The value of fileName.</dd>
+</p>
+</dl>
+</dd>
+</p>
+
+</dl>
+</dd>
+</p>
+</dl>
+
+</dd>
+<dt>
+<hr/>
+</dt>
+<dd/>
+</p>
+</dl>
+
+</div>
+</body>
+</html>

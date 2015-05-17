@@ -1,0 +1,17 @@
+Tile-Based Strategy Game Engine
+CSCI 251: Software Design, Spring 2015
+Elijah Verdoorn
+Nathan Maveus
+Rowan Garrigan
+Xinying Liu 
+
+To build, run the following commands:
+% make
+% make Editor
+
+To run, run the following commands:
+% ./Editor
+% ./main
+
+For more information, see our wiki at http://www.cs.stolaf.edu/wiki/index.php/Legend_studios
+

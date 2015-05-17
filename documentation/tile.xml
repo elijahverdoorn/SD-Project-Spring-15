@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE spec SYSTEM "http://www.cs.stolaf.edu/lib/SpecML/SpecML.dtd">
+<?xml-stylesheet
+   href="http://www.cs.stolaf.edu/lib/SpecML/SpecMLToHTML.xsl"
+   type="text/xsl"?>
+
+<spec>
+<title>Tile Class Spec</title>
+<header>Modeling the Tile class</header>
+<credits>Elijah Verdoorn. 5/15/15 CS251 @ St. Olaf College</credits>
+
+<class name="Tile">
+
+<nosuperclass/>
+
+<variables>
+<var name="sprite" type="*sprite">A sprite object</var>
+<var name="texture" type="Texture">The associated Texture Object</var>
+<var name="posX" type="int">The X position of this tile</var>
+<var name="posY" type="int">The Y position of this tile</var>
+<var name="width" type="int">The width of this tile, in pixels</var>
+<var name="height" type="int">The height if this tile, in pixels</var>
+<var name="fileName" type="string">The filename associated with this tile</var>
+</variables>
+
+<constructors-list>
+
+<constructor visibility="public">
+<desc>The default constructor.</desc>
+<noarguments/>
+<statechange>This instance of Tile is initialized with no texture, sprite or other values. </statechange>
+</constructor>
+
+<constructor visibility="public">
+<desc>Constructor from a Texture</desc>
+<arguments>
+<arg name="par" type="Texture">The texture to be used</arg>
+</arguments>
+<statechange>The texture is assinged to Texture, and a sprite is created from the Texture.</statechange>
+</constructor>
+
+<constructor visibility="public">
+<desc>Constructor from a filename</desc>
+<arguments>
+<arg name="fileName" type="string">The file to pull the texture from</arg>
+</arguments>
+<statechange>The texture is created from the fileName, then the sprite created from the texture.</statechange>
+</constructor>
+</constructors-list>
+
+<destructor>
+<desc>No Destructor Required</desc>
+</destructor>
+
+<methods-list>
+
+<method name="draw" returntype="void">
+<desc>Draw the sprit on the window</desc>
+<arguments>
+<arg name="window" type="*RenderWindow">The window for the sprite to be created on.</arg>
+</arguments>
+<statechange>The sprite is displayed on the window.</statechange>
+<return>void</return>
+</method>
+
+<method name="getSprite" returntype="Sprite">
+<desc>Get the sprite object</desc>
+<noarguments/>
+<statechange>the sprite object is returned</statechange>
+<return>sprite</return>
+</method>
+
+<method name="setPosition" returntype="void">
+<desc>Sets the position of a tile</desc>
+<arguments>
+<arg name="x" type="int">X array position</arg>
+<arg name="y" type="int">Y array position</arg>
+</arguments>
+<statechange>Puts a tile on the x and y values of the grid array</statechange>
+<return></return>
+</method>
+
+<method name="setEditorPosition" returntype="void">
+<desc>Sets the position of a tile</desc>
+<arguments>
+<arg name="x" type="int">X array position</arg>
+<arg name="y" type="int">Y array position</arg>
+</arguments>
+<statechange>Puts a tile on the x and y values of the grid in the editor's array</statechange>
+<return></return>
+</method>
+
+<method name="setWidth" returntype="void">
+<desc>Changes the tile's width</desc>
+<arguments>
+<arg name="par" type="int">An integer.</arg>
+</arguments>
+<statechange>Changes the width associated with this tile.</statechange>
+<return></return>
+</method>
+
+<method name="setHeight" returntype="void">
+<desc>Changes the tile's Height</desc>
+<arguments>
+<arg name="par" type="int">An integer.</arg>
+</arguments>
+<statechange>Changes the Height associated with this tile.</statechange>
+<return></return>
+</method>
+
+<method name="setPositionX" returntype="void">
+<desc>Sets the X position of a tile</desc>
+<arguments>
+<arg name="apr" type="int">X grid position</arg>
+</arguments>
+<statechange>Puts a tile on the x position</statechange>
+<return></return>
+</method>
+
+<method name="setPositionY" returntype="void">
+<desc>Sets the Y position of a tile</desc>
+<arguments>
+<arg name="par" type="int">Y grid position</arg>
+</arguments>
+<statechange>Puts a tile on the y position</statechange>
+<return></return>
+</method>
+
+<method name="getPositionX" returntype="int">
+<desc>Gets the tiles's X array position</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>The X position on the map array</return>
+</method>
+
+<method name="getPositionY" returntype="int">
+<desc>Gets the tile's Y array position</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>The Y position on the map array</return>
+</method>
+
+<method name="setTexture" returntype="void">
+<desc>Sets the texture of a character</desc>
+<arguments>
+<arg name="par" type="Texture">A texture object.</arg>
+</arguments>
+<statechange>Changes the texture associated with this character.</statechange>
+<return></return>
+</method>
+
+<method name="getTexture" returntype="Texture">
+<desc>Access the texture variable</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>The value of texture.</return>
+</method>
+
+<method name="getTexturePtr" returntype="Texture*">
+<desc>Access the address of the texture variable</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>The address of texture.</return>
+</method>
+
+<method name="setFileName" returntype="void">
+<desc>Changes the tile's file name</desc>
+<arguments>
+<arg name="file" type="string">A string.</arg>
+</arguments>
+<statechange>Changes the file name associated with this tile.</statechange>
+<return></return>
+</method>
+
+<method name="getFileName" returntype="string">
+<desc>Gets the tile's file name.</desc>
+<noarguments />
+<statechange>None</statechange>
+<return>The value of fileName.</return>
+</method>
+
+</methods-list>
+
+</class>
+
+</spec>
